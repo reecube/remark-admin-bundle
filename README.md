@@ -1,3 +1,10 @@
+IMPORTANT
+========================
+
+This is a private repository, you should never access these source files! 
+If you did anyway, please make sure to license your copy of the Remark Theme here:
+https://themeforest.net/item/remark-responsive-bootstrap-4-admin-template/11989202
+
 Symfony Standard Edition
 ========================
 
