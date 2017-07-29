@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use AppBundle\Entity\BlogPost;
 use AppBundle\Entity\Category;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
@@ -34,7 +35,18 @@ class BlogPostAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        // ... configure $listMapper
+        $listMapper->addIdentifier('title');
+        $listMapper->add('category.name');
+        $listMapper->add('draft');
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('title');
+        $datagridMapper->add('category', null, [], 'entity', [
+            'class' => Category::class,
+            'choice_label' => 'name',
+        ]);
     }
 
     /**
