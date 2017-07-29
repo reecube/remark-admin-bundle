@@ -76,3 +76,40 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
         # ...
+sonata_admin:
+    templates:
+        layout:                         RemarkAdminBundle::standard_layout.html.twig
+        ajax:                           RemarkAdminBundle::ajax_layout.html.twig
+        list:                           RemarkAdminBundle:CRUD:list.html.twig
+        show:                           RemarkAdminBundle:CRUD:show.html.twig
+        show_compare:                   RemarkAdminBundle:CRUD:show_compare.html.twig
+        edit:                           RemarkAdminBundle:CRUD:edit.html.twig
+        history:                        RemarkAdminBundle:CRUD:history.html.twig
+        preview:                        RemarkAdminBundle:CRUD:preview.html.twig
+        delete:                         RemarkAdminBundle:CRUD:delete.html.twig
+        batch:                          RemarkAdminBundle:CRUD:list__batch.html.twig
+        acl:                            RemarkAdminBundle:CRUD:acl.html.twig
+        action:                         RemarkAdminBundle:CRUD:action.html.twig
+        select:                         RemarkAdminBundle:CRUD:list__select.html.twig
+        filter:                         RemarkAdminBundle:Form:filter_admin_fields.html.twig
+        dashboard:                      RemarkAdminBundle:Core:dashboard.html.twig
+        search:                         RemarkAdminBundle:Core:search.html.twig
+        batch_confirmation:             RemarkAdminBundle:CRUD:batch_confirmation.html.twig
+        inner_list_row:                 RemarkAdminBundle:CRUD:list_inner_row.html.twig
+        base_list_field:                RemarkAdminBundle:CRUD:base_list_field.html.twig
+        list_block:                     RemarkAdminBundle:Block:block_admin_list.html.twig
+        user_block:                     RemarkAdminBundle:Core:user_block.html.twig
+        add_block:                      RemarkAdminBundle:Core:add_block.html.twig
+        pager_links:                    RemarkAdminBundle:Pager:links.html.twig
+        pager_results:                  RemarkAdminBundle:Pager:results.html.twig
+        tab_menu_template:              RemarkAdminBundle:Core:tab_menu_template.html.twig
+        history_revision_timestamp:     RemarkAdminBundle:CRUD:history_revision_timestamp.html.twig
+        short_object_description:       RemarkAdminBundle:Helper:short-object-description.html.twig
+        search_result_block:            RemarkAdminBundle:Block:block_search_result.html.twig
+        action_create:                  RemarkAdminBundle:CRUD:dashboard__action_create.html.twig
+        button_acl:                     RemarkAdminBundle:Button:acl_button.html.twig
+        button_create:                  RemarkAdminBundle:Button:create_button.html.twig
+        button_edit:                    RemarkAdminBundle:Button:edit_button.html.twig
+        button_history:                 RemarkAdminBundle:Button:history_button.html.twig
+        button_list:                    RemarkAdminBundle:Button:list_button.html.twig
+        button_show:                    RemarkAdminBundle:Button:show_button.html.twig

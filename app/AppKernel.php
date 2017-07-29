@@ -27,6 +27,7 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
 
             // Platform bundles
+            new RemarkAdminBundle\RemarkAdminBundle(),
             new AppBundle\AppBundle(),
         ];
 
