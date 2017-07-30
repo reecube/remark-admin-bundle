@@ -64,18 +64,22 @@
         </div>
         <!-- End Navbar Collapse -->
         <!-- Site Navbar Seach -->
-        <div class="collapse navbar-search-overlap" id="site-navbar-search">
-            <form role="search">
-                <div class="form-group">
-                    <div class="input-search">
-                        <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                        <input type="text" class="form-control" name="site-search" placeholder="Search...">
-                        <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search"
-                                data-toggle="collapse" aria-label="Close"></button>
+        {% block sonata_sidebar_search %}
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form action="{{ path('sonata_admin_search') }}" method="GET" role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control"
+                                   placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
+                            <button type="button" class="input-search-close icon wb-close"
+                                    data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        {% endblock sonata_sidebar_search %}
         <!-- End Site Navbar Seach -->
     </div>
 </nav>
