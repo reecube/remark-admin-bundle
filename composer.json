@@ -1,0 +1,37 @@
+{
+  "name": "reecube/remark-admin-bundle",
+  "description": "This bundle overwrites the sonata admin theme with the Remark Admin Template sourcefiles.",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Yves Riedener (aka ReeCube)",
+      "homepage": "https://github.com/reecube",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "Symfony Bundle",
+    "Sonata Admin",
+    "Remark Admin Template"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-0": {
+      "ReeCube\\RemarkAdminBundle\\": ""
+    }
+  },
+  "target-dir": "ReeCube/RemarkAdminBundle",
+  "repositories": [
+    {
+    }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "master-dev"
+    }
+  }
+}
