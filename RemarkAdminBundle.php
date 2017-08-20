@@ -1,6 +1,6 @@
 <?php
 
-namespace RemarkAdminBundle;
+namespace ReeCube\RemarkAdminBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

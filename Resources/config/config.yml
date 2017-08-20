@@ -1,0 +1,37 @@
+sonata_admin:
+    templates:
+        layout:                         ReeCube\RemarkAdminBundle::standard_layout.html.twig
+        ajax:                           ReeCube\RemarkAdminBundle::ajax_layout.html.twig
+        list:                           ReeCube\RemarkAdminBundle:CRUD:list.html.twig
+        show:                           ReeCube\RemarkAdminBundle:CRUD:show.html.twig
+        show_compare:                   ReeCube\RemarkAdminBundle:CRUD:show_compare.html.twig
+        edit:                           ReeCube\RemarkAdminBundle:CRUD:edit.html.twig
+        history:                        ReeCube\RemarkAdminBundle:CRUD:history.html.twig
+        preview:                        ReeCube\RemarkAdminBundle:CRUD:preview.html.twig
+        delete:                         ReeCube\RemarkAdminBundle:CRUD:delete.html.twig
+        batch:                          ReeCube\RemarkAdminBundle:CRUD:list__batch.html.twig
+        acl:                            ReeCube\RemarkAdminBundle:CRUD:acl.html.twig
+        action:                         ReeCube\RemarkAdminBundle:CRUD:action.html.twig
+        select:                         ReeCube\RemarkAdminBundle:CRUD:list__select.html.twig
+        filter:                         ReeCube\RemarkAdminBundle:Form:filter_admin_fields.html.twig
+        dashboard:                      ReeCube\RemarkAdminBundle:Core:dashboard.html.twig
+        search:                         ReeCube\RemarkAdminBundle:Core:search.html.twig
+        batch_confirmation:             ReeCube\RemarkAdminBundle:CRUD:batch_confirmation.html.twig
+        inner_list_row:                 ReeCube\RemarkAdminBundle:CRUD:list_inner_row.html.twig
+        base_list_field:                ReeCube\RemarkAdminBundle:CRUD:base_list_field.html.twig
+        list_block:                     ReeCube\RemarkAdminBundle:Block:block_admin_list.html.twig
+        user_block:                     ReeCube\RemarkAdminBundle:Core:user_block.html.twig
+        add_block:                      ReeCube\RemarkAdminBundle:Core:add_block.html.twig
+        pager_links:                    ReeCube\RemarkAdminBundle:Pager:links.html.twig
+        pager_results:                  ReeCube\RemarkAdminBundle:Pager:results.html.twig
+        tab_menu_template:              ReeCube\RemarkAdminBundle:Core:tab_menu_template.html.twig
+        history_revision_timestamp:     ReeCube\RemarkAdminBundle:CRUD:history_revision_timestamp.html.twig
+        short_object_description:       ReeCube\RemarkAdminBundle:Helper:short-object-description.html.twig
+        search_result_block:            ReeCube\RemarkAdminBundle:Block:block_search_result.html.twig
+        action_create:                  ReeCube\RemarkAdminBundle:CRUD:dashboard__action_create.html.twig
+        button_acl:                     ReeCube\RemarkAdminBundle:Button:acl_button.html.twig
+        button_create:                  ReeCube\RemarkAdminBundle:Button:create_button.html.twig
+        button_edit:                    ReeCube\RemarkAdminBundle:Button:edit_button.html.twig
+        button_history:                 ReeCube\RemarkAdminBundle:Button:history_button.html.twig
+        button_list:                    ReeCube\RemarkAdminBundle:Button:list_button.html.twig
+        button_show:                    ReeCube\RemarkAdminBundle:Button:show_button.html.twig
