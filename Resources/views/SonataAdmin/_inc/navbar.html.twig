@@ -1,0 +1,85 @@
+<nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
+                data-toggle="menubar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-collapse"
+                data-toggle="collapse">
+            <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+        </button>
+        {% block logo %}
+            {% spaceless %}
+                <a class="navbar-brand navbar-brand-center" href="{{ url('sonata_admin_dashboard') }}">
+                    {% if 'single_image' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
+                        <img class="navbar-brand-logo navbar-brand-logo-normal"
+                             src="{{ asset(sonata_admin.adminPool.titlelogo) }}"
+                             alt="{{ sonata_admin.adminPool.title }}">
+
+                        {# TODO: implement inverted logo #}
+                        <img class="navbar-brand-logo navbar-brand-logo-special"
+                             src="{{ asset(sonata_admin.adminPool.titlelogo) }}"
+                             alt="{{ sonata_admin.adminPool.title }}">
+                    {% endif %}
+                    {% if 'single_text' == sonata_admin.adminPool.getOption('title_mode') or 'both' == sonata_admin.adminPool.getOption('title_mode') %}
+                        <span class="navbar-brand-text hidden-xs-down">{{ sonata_admin.adminPool.title }}</span>
+                    {% endif %}
+                </a>
+            {% endspaceless %}
+        {% endblock %}
+        <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
+                data-toggle="collapse">
+            <span class="sr-only">Toggle Search</span>
+            <i class="icon wb-search" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="navbar-container container-fluid">
+        <!-- Navbar Collapse -->
+        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+            <!-- Navbar Toolbar -->
+            <ul class="nav navbar-toolbar">
+                <li class="nav-item hidden-float" id="toggleMenubar">
+                    <a class="nav-link" data-toggle="menubar" href="#" role="button">
+                        <i class="icon hamburger hamburger-arrow-left">
+                            <span class="sr-only">Toggle menubar</span>
+                            <span class="hamburger-bar"></span>
+                        </i>
+                    </a>
+                </li>
+                {% include '@RemarkAdmin/SonataAdmin/_inc/navbar/toggle_fullscreen.html.twig' %}
+                {% include '@RemarkAdmin/SonataAdmin/_inc/navbar/toggle_search.html.twig' %}
+                {#{% include '@RemarkAdmin/SonataAdmin/_inc/navbar/megamenu.html.twig' %}#}
+            </ul>
+            <!-- End Navbar Toolbar -->
+            <!-- Navbar Toolbar Right -->
+            <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                {#{% include '@RemarkAdmin/SonataAdmin/_inc/navbar/notifications.html.twig' %}#}
+                {#{% include '@RemarkAdmin/SonataAdmin/_inc/navbar/messages.html.twig' %}#}
+                {#{% include '@RemarkAdmin/SonataAdmin/_inc/navbar/chat.html.twig' %}#}
+                {% include '@RemarkAdmin/SonataAdmin/_inc/navbar/language.html.twig' %}
+                {% include '@RemarkAdmin/SonataAdmin/_inc/navbar/profile.html.twig' %}
+            </ul>
+            <!-- End Navbar Toolbar Right -->
+        </div>
+        <!-- End Navbar Collapse -->
+        <!-- Site Navbar Seach -->
+        {% block sonata_sidebar_search %}
+            <div class="collapse navbar-search-overlap" id="site-navbar-search">
+                <form action="{{ path('sonata_admin_search') }}" method="GET" role="search">
+                    <div class="form-group">
+                        <div class="input-search">
+                            <i class="input-search-icon wb-search" aria-hidden="true"></i>
+                            <input type="text" name="q" value="{{ app.request.get('q') }}" class="form-control"
+                                   placeholder="{{ 'search_placeholder'|trans({}, 'SonataAdminBundle') }}">
+                            <button type="button" class="input-search-close icon wb-close"
+                                    data-target="#site-navbar-search"
+                                    data-toggle="collapse" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        {% endblock sonata_sidebar_search %}
+        <!-- End Site Navbar Seach -->
+    </div>
+</nav>

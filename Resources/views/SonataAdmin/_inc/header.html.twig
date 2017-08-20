@@ -1,0 +1,10 @@
+{% block sonata_header %}
+    <noscript>
+        <div class="noscript-warning">
+            {{ 'noscript_warning'|trans({}, 'SonataAdminBundle') }}
+        </div>
+    </noscript>
+
+    {% include '@RemarkAdmin/SonataAdmin/_inc/navbar.html.twig' %}
+    {% include '@RemarkAdmin/SonataAdmin/_inc/menubar.html.twig' %}
+{% endblock %}

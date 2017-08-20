@@ -1,0 +1,156 @@
+{% set _preview = block('preview') is defined ? block('preview')|trim : null %}
+{% set _form = block('form') is defined ? block('form')|trim : null %}
+{% set _show = block('show') is defined ? block('show')|trim : null %}
+{% set _list_table = block('list_table') is defined ? block('list_table')|trim : null %}
+{% set _list_filters = block('list_filters') is defined ? block('list_filters')|trim : null %}
+{% set _tab_menu = block('tab_menu') is defined ? block('tab_menu')|trim : null %}
+{% set _content = block('content') is defined ? block('content')|trim : null %}
+{% set _title = block('title') is defined ? block('title')|trim : null %}
+{% set _breadcrumb = block('breadcrumb') is defined ? block('breadcrumb')|trim : null %}
+{% set _actions = block('actions') is defined ? block('actions')|trim : null %}
+{% set _navbar_title = block('navbar_title') is defined ? block('navbar_title')|trim : null %}
+{% set _list_filters_actions = block('list_filters_actions') is defined ? block('list_filters_actions')|trim : null %}
+
+<!DOCTYPE html>
+<html {% block html_attributes %}class="no-js css-menubar"{% endblock %}>
+<head>
+    {% block meta_tags %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description" content="bootstrap admin template">
+        <meta name="author" content="">
+
+        <link rel="apple-touch-icon" href="{{ asset('remark/classic/topbar/assets/images/apple-touch-icon.png') }}">
+        <link rel="shortcut icon" href="{{ asset('remark/classic/topbar/assets/images/favicon.ico') }}">
+    {% endblock %}
+
+    {% block stylesheets %}
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/css/bootstrap-extend.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/topbar/assets/css/site.min.css') }}">
+        <!-- Plugins -->
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/animsition/animsition.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/asscrollable/asScrollable.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/switchery/switchery.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/intro-js/introjs.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/slidepanel/slidePanel.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/flag-icon-css/flag-icon.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/chartist/chartist.css') }}">
+        <link rel="stylesheet"
+              href="{{ asset('remark/classic/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/aspieprogress/asPieProgress.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/vendor/jquery-selective/jquery-selective.css') }}">
+        <link rel="stylesheet"
+              href="{{ asset('remark/classic/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/topbar/assets/examples/css/dashboard/team.css') }}">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/fonts/web-icons/web-icons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('remark/classic/global/fonts/brand-icons/brand-icons.min.css') }}">
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    {% endblock %}
+
+    {% block head_javascripts %}
+        <!--[if lt IE 9]>
+        <script src="{{ asset('remark/classic/global/vendor/html5shiv/html5shiv.min.js') }}"></script>
+        <![endif]-->
+        <!--[if lt IE 10]>
+        <script src="{{ asset('remark/classic/global/vendor/media-match/media.match.min.js') }}"></script>
+        <script src="{{ asset('remark/classic/global/vendor/respond/respond.min.js') }}"></script>
+        <![endif]-->
+        <!-- Scripts -->
+        <script src="{{ asset('remark/classic/global/vendor/breakpoints/breakpoints.js') }}"></script>
+        <script>
+            Breakpoints();
+        </script>
+    {% endblock %}
+
+    {% block head_title %}
+        <title>
+            {% block sonata_head_title %}
+                {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
+
+                {% if _title is not empty %}
+                    {{ _title|raw }}
+                {% else %}
+                    {% if action is defined %}
+                        -
+                        {% for menu in breadcrumbs_builder.breadcrumbs(admin, action) %}
+                            {% if not loop.first %}
+                                {% if loop.index != 2 %}
+                                    &gt;
+                                {% endif %}
+
+                                {%- set translation_domain = menu.extra('translation_domain', 'messages') -%}
+                                {%- set label = menu.label -%}
+                                {%- if translation_domain is not same as(false) -%}
+                                    {%- set label = label|trans(menu.extra('translation_params', {}), translation_domain) -%}
+                                {%- endif -%}
+
+                                {{ label }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endif %}
+            {% endblock %}
+        </title>
+    {% endblock %}
+</head>
+<body {% block body_attributes %}class="animsition site-navbar-small dashboard"{% endblock %}>
+{% include '@RemarkAdmin/SonataAdmin/_inc/browserupgrade.html.twig' %}
+
+{% include '@RemarkAdmin/SonataAdmin/_inc/header.html.twig' %}
+{% include '@RemarkAdmin/SonataAdmin/_inc/page.html.twig' %}
+{% include '@RemarkAdmin/SonataAdmin/_inc/dialogs.html.twig' %}
+{% include '@RemarkAdmin/SonataAdmin/_inc/footer.html.twig' %}
+
+{% block javascripts %}
+    <!-- Core  -->
+    <script src="{{ asset('remark/classic/global/vendor/babel-external-helpers/babel-external-helpers.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/tether/tether.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/bootstrap/bootstrap.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/animsition/animsition.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/mousewheel/jquery.mousewheel.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/asscrollbar/jquery-asScrollbar.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/asscrollable/jquery-asScrollable.js') }}"></script>
+    <!-- Plugins -->
+    <script src="{{ asset('remark/classic/global/vendor/switchery/switchery.min.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/intro-js/intro.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/screenfull/screenfull.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/slidepanel/jquery-slidePanel.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/chartist/chartist.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/aspieprogress/jquery-asPieProgress.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/matchheight/jquery.matchHeight-min.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/jquery-selective/jquery-selective.min.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('remark/classic/global/js/State.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Component.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Base.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Config.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/js/Section/Menubar.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/js/Section/Sidebar.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/js/Section/PageAside.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/js/Plugin/menu.js') }}"></script>
+    <!-- Config -->
+    <script src="{{ asset('remark/classic/global/js/config/colors.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/js/config/tour.js') }}"></script>
+    <script>
+        Config.set('assets', '../assets');
+    </script>
+    <!-- Page -->
+    <script src="{{ asset('remark/classic/topbar/assets/js/Site.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/asscrollable.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/slidepanel.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/switchery.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/matchheight.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/aspieprogress.js') }}"></script>
+    <script src="{{ asset('remark/classic/global/js/Plugin/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('remark/classic/topbar/assets/examples/js/dashboard/team.js') }}"></script>
+{% endblock %}
+</body>
+</html>
